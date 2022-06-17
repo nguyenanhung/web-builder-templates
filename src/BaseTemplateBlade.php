@@ -99,7 +99,7 @@ class BaseTemplateBlade
      * @param string $name
      * @param mixed  $value
      *
-     * @return Blade
+     * @return BaseTemplateBlade
      */
     public function set($name, $value)
     {
@@ -115,7 +115,7 @@ class BaseTemplateBlade
      * @param string $name
      * @param mixed  $value
      *
-     * @return Blade
+     * @return BaseTemplateBlade
      */
     public function append($name, $value)
     {
@@ -133,7 +133,7 @@ class BaseTemplateBlade
      *
      * @param array $data
      *
-     * @return Blade
+     * @return BaseTemplateBlade
      */
     public function set_data($data)
     {
@@ -147,7 +147,7 @@ class BaseTemplateBlade
      *
      * @param mixed $compiler
      *
-     * @return Blade
+     * @return BaseTemplateBlade
      */
     public function extend($compiler)
     {

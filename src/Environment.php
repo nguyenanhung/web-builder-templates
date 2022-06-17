@@ -17,8 +17,8 @@ namespace nguyenanhung\WebBuilderTemplates;
  */
 interface Environment
 {
-    public const VERSION       = '1.0.1';
-    public const LAST_MODIFIED = '2022-06-16';
+    public const VERSION       = '1.0.2';
+    public const LAST_MODIFIED = '2022-06-17';
     public const AUTHOR_NAME   = 'Hung Nguyen';
     public const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
     public const PROJECT_NAME  = 'Templates: Web Builder by Hung Nguyen';

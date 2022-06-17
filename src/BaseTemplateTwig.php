@@ -30,18 +30,18 @@ class BaseTemplateTwig
     /**
      * @var array Paths to Twig templates
      */
-    private $paths = [];
+    protected $paths = [];
 
     /**
      * @var array Twig Environment Options
      * @see http://twig.sensiolabs.org/doc/api.html#environment-options
      */
-    private $config = [];
+    protected $config = [];
 
     /**
      * @var array Functions to add to Twig
      */
-    private $functions_asis = [
+    protected $functions_asis = [
         'base_url', 'site_url',
     ];
 
@@ -49,7 +49,7 @@ class BaseTemplateTwig
      * @var array Functions with `is_safe` option
      * @see http://twig.sensiolabs.org/doc/advanced.html#automatic-escaping
      */
-    private $functions_safe = [
+    protected $functions_safe = [
         'form_open', 'form_close', 'form_error', 'form_hidden', 'set_value',
         //		'form_open_multipart', 'form_upload', 'form_submit', 'form_dropdown',
         //		'set_radio', 'set_select', 'set_checkbox',
@@ -58,17 +58,13 @@ class BaseTemplateTwig
     /**
      * @var bool Whether functions are added or not
      */
-    private $functions_added = false;
+    protected $functions_added = false;
 
-    /**
-     * @var Twig_Environment
-     */
-    private $twig;
+    /** @var \Twig\Environment */
+    protected $twig;
 
-    /**
-     * @var Twig_Loader_Filesystem
-     */
-    private $loader;
+    /** @var \Twig\Loader\FilesystemLoader */
+    protected $loader;
 
     public function __construct($params = [])
     {
@@ -118,13 +114,13 @@ class BaseTemplateTwig
         }
 
         if ($this->loader === null) {
-            $this->loader = new \Twig_Loader_Filesystem($this->paths);
+            $this->loader = new \Twig\Loader\FilesystemLoader($this->paths);
         }
 
-        $twig = new \Twig_Environment($this->loader, $this->config);
+        $twig = new \Twig\Environment($this->loader, $this->config);
 
         if ($this->config['debug']) {
-            $twig->addExtension(new \Twig_Extension_Debug());
+            $twig->addExtension(new \Twig\Extension\DebugExtension());
         }
 
         $this->twig = $twig;
@@ -190,7 +186,7 @@ class BaseTemplateTwig
         foreach ($this->functions_asis as $function) {
             if (function_exists($function)) {
                 $this->twig->addFunction(
-                    new \Twig_SimpleFunction(
+                    new \Twig\TwigFunction(
                         $function,
                         $function
                     )
@@ -202,7 +198,7 @@ class BaseTemplateTwig
         foreach ($this->functions_safe as $function) {
             if (function_exists($function)) {
                 $this->twig->addFunction(
-                    new \Twig_SimpleFunction(
+                    new \Twig\TwigFunction(
                         $function,
                         $function,
                         ['is_safe' => ['html']]
@@ -214,7 +210,7 @@ class BaseTemplateTwig
         // customized functions
         if (function_exists('anchor')) {
             $this->twig->addFunction(
-                new \Twig_SimpleFunction(
+                new \Twig\TwigFunction(
                     'anchor',
                     [$this, 'safe_anchor'],
                     ['is_safe' => ['html']]
@@ -234,19 +230,24 @@ class BaseTemplateTwig
      */
     public function safe_anchor($uri = '', $title = '', $attributes = [])
     {
-        $uri   = html_escape($uri);
-        $title = html_escape($title);
+        $uri   = escape_html($uri);
+        $title = escape_html($title);
 
         $new_attr = [];
         foreach ($attributes as $key => $val) {
-            $new_attr[html_escape($key)] = html_escape($val);
+            $new_attr[escape_html($key)] = escape_html($val);
         }
 
         return anchor($uri, $title, $new_attr);
     }
 
     /**
-     * @return \Twig_Environment
+     * Function getTwig
+     *
+     * @return \Twig\Environment
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 17/06/2022 17:21
      */
     public function getTwig()
     {
