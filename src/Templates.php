@@ -27,14 +27,14 @@ class Templates implements Environment
     /**
      * Function getTemplatesPath
      *
-     * @author: 713uk13m <dev@nguyenanhung.com>
-     * @time  : 2018-12-15 03:18
-     *
-     * @return bool|string
+     * @return string
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 06/02/2023 51:52
      */
     public static function getTemplatesPath()
     {
-        return realpath(__DIR__ . '/../templates');
+        return __DIR__ . '/../templates';
     }
 
     /**
@@ -45,7 +45,7 @@ class Templates implements Environment
      *
      * @return string
      */
-    public static function getTemplatesExtension(): string
+    public static function getTemplatesExtension()
     {
         return '.html';
     }
@@ -64,12 +64,12 @@ class Templates implements Environment
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 16/06/2022 32:21
      */
-    public static function render(string $template = '', array $data = []): string
+    public static function render($template = '', $data = array())
     {
-        $templatesPath = realpath(__DIR__ . '/../templates');
-        $loader        = new \Twig\Loader\FilesystemLoader($templatesPath);
-        $twig          = new \Twig\Environment($loader);
-        $templateFile  = $template . '.html';
+        $templatesPath = __DIR__ . '/../templates';
+        $loader = new \Twig\Loader\FilesystemLoader($templatesPath);
+        $twig = new \Twig\Environment($loader);
+        $templateFile = $template . '.html';
 
         return $twig->render($templateFile, $data);
     }
@@ -85,10 +85,10 @@ class Templates implements Environment
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 16/06/2022 33:42
      */
-    public static function nativeRender(string $template = '', array $data = []): string
+    public static function nativeRender($template = '', $data = array())
     {
-        $templatesPath = realpath(__DIR__ . '/../templates');
-        $templates     = new \League\Plates\Engine($templatesPath);
+        $templatesPath = __DIR__ . '/../templates';
+        $templates = new \League\Plates\Engine($templatesPath);
 
         return $templates->render($template, $data);
     }

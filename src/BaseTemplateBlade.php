@@ -36,25 +36,25 @@ class BaseTemplateBlade
      *
      * @var array
      */
-    protected $_last_section = [];
+    protected $_last_section = array();
     /**
      * Array of sections content
      *
      * @var array
      */
-    protected $_sections = [];
+    protected $_sections = array();
     /**
      * An array of user defined compilers.
      *
      * @var array
      */
-    protected $_extensions = [];
+    protected $_extensions = array();
     /**
      * Global data array for templates
      *
      * @var array
      */
-    protected $_data = [];
+    protected $_data = array();
     /**
      * Template file extension
      *

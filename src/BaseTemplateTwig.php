@@ -30,20 +30,18 @@ class BaseTemplateTwig
     /**
      * @var array Paths to Twig templates
      */
-    protected $paths = [];
+    protected $paths = array();
 
     /**
      * @var array Twig Environment Options
      * @see http://twig.sensiolabs.org/doc/api.html#environment-options
      */
-    protected $config = [];
+    protected $config = array();
 
     /**
      * @var array Functions to add to Twig
      */
-    protected $functions_asis = [
-        'base_url', 'site_url',
-    ];
+    protected $functions_asis = array('base_url', 'site_url');
 
     /**
      * @var array Functions with `is_safe` option
@@ -66,7 +64,7 @@ class BaseTemplateTwig
     /** @var \Twig\Loader\FilesystemLoader */
     protected $loader;
 
-    public function __construct($params = [])
+    public function __construct($params = array())
     {
         if (isset($params['functions'])) {
             $this->functions_asis =
@@ -149,7 +147,7 @@ class BaseTemplateTwig
      * @param string $view   Template filename without `.twig`
      * @param array  $params Array of parameters to pass to the template
      */
-    public function display($view, $params = [])
+    public function display($view, $params = array())
     {
         $CI =& get_instance();
         $CI->output->set_output($this->render($view, $params));
@@ -163,7 +161,7 @@ class BaseTemplateTwig
      *
      * @return string
      */
-    public function render($view, $params = [])
+    public function render($view, $params = array())
     {
         $this->createTwig();
         // We call addFunctions() here, because we must call addFunctions()
@@ -228,12 +226,12 @@ class BaseTemplateTwig
      *
      * @return string
      */
-    public function safe_anchor($uri = '', $title = '', $attributes = [])
+    public function safe_anchor($uri = '', $title = '', $attributes = array())
     {
         $uri   = escape_html($uri);
         $title = escape_html($title);
 
-        $new_attr = [];
+        $new_attr = array();
         foreach ($attributes as $key => $val) {
             $new_attr[escape_html($key)] = escape_html($val);
         }

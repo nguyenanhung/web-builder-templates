@@ -6,6 +6,8 @@
 
 # Web Builder Templates by Hung Nguyen
 
+Bộ templates này được thiết kế, tích hợp với gói `web-builder-sdk` và store sẵn bộ base templates nhằm thực hiện cho nhiều dự án
+
 ### Contact
 
 | Name        | Email                | Skype            | Facebook      |

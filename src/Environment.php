@@ -17,13 +17,13 @@ namespace nguyenanhung\WebBuilderTemplates;
  */
 interface Environment
 {
-    public const VERSION       = '1.0.3';
-    public const LAST_MODIFIED = '2022-07-04';
-    public const AUTHOR_NAME   = 'Hung Nguyen';
-    public const AUTHOR_EMAIL  = 'dev@nguyenanhung.com';
-    public const PROJECT_NAME  = 'Templates: Web Builder by Hung Nguyen';
+    public const VERSION = '1.0.4';
+    public const LAST_MODIFIED = '2023-02-06';
+    public const AUTHOR_NAME = 'Hung Nguyen';
+    public const AUTHOR_EMAIL = 'dev@nguyenanhung.com';
+    public const PROJECT_NAME = 'Templates: Web Builder by Hung Nguyen';
     public const USE_BENCHMARK = false;
-    public const USE_DEBUG     = false;
+    public const USE_DEBUG = false;
 
     /**
      * Hàm lấy thông tin phiên bản Package
