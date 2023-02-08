@@ -19,6 +19,14 @@ namespace nguyenanhung\WebBuilderTemplates;
  */
 class Templates implements Environment
 {
+    /**
+     * Function getVersion
+     *
+     * @return string
+     * @author   : 713uk13m <dev@nguyenanhung.com>
+     * @copyright: 713uk13m <dev@nguyenanhung.com>
+     * @time     : 08/02/2023 04:12
+     */
     public function getVersion(): string
     {
         return self::VERSION;
@@ -51,7 +59,7 @@ class Templates implements Environment
     }
 
     /**
-     * Function render
+     * Function render - Sử dụng Twig Template Engine
      *
      * @param string $template
      * @param array  $data
@@ -63,6 +71,8 @@ class Templates implements Environment
      * @author   : 713uk13m <dev@nguyenanhung.com>
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 16/06/2022 32:21
+     *
+     * @see      https://twig.symfony.com/
      */
     public static function render($template = '', $data = array())
     {
@@ -75,15 +85,17 @@ class Templates implements Environment
     }
 
     /**
-     * Function nativeRender
+     * Function nativeRender - Sử dụng Plates Template Engine
      *
      * @param string $template
      * @param array  $data
      *
      * @return string
-     * @author   : 713uk13m <dev@nguyenanhung.com>
-     * @copyright: 713uk13m <dev@nguyenanhung.com>
-     * @time     : 16/06/2022 33:42
+     * @author    : 713uk13m <dev@nguyenanhung.com>
+     * @copyright : 713uk13m <dev@nguyenanhung.com>
+     * @time      : 16/06/2022 33:42
+     *
+     * @see       https://platesphp.com/
      */
     public static function nativeRender($template = '', $data = array())
     {
