@@ -27,7 +27,7 @@ class Templates implements Environment
      * @copyright: 713uk13m <dev@nguyenanhung.com>
      * @time     : 08/02/2023 04:12
      */
-    public function getVersion(): string
+    public function getVersion()
     {
         return self::VERSION;
     }
