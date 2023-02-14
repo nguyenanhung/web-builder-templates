@@ -31,9 +31,6 @@
     "autoload": {
         "psr-4": {
             "nguyenanhung\\WebBuilderTemplates\\": "src/"
-        },
-        "files": [
-            "helpers/helpers.php"
-        ]
+        }
     }
 }
