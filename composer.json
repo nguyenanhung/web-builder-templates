@@ -1,5 +1,5 @@
 {
-    "name": "nguyenanhung/web-builder-templates",
+    "name": "web-builder-sdk/web-builder-templates",
     "type": "library",
     "description": "Web Builder Templates by Hung Nguyen",
     "keywords": [
@@ -7,7 +7,7 @@
         "website",
         "news"
     ],
-    "homepage": "https://github.com/nguyenanhung/web-builder-templates",
+    "homepage": "https://github.com/smart-bear-cms/web-builder-templates",
     "license": "GPL-3.0-only",
     "authors": [
         {
